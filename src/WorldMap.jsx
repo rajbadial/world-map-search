@@ -1,12 +1,9 @@
-// src/WorldMap.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import animalData from './animalData';
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
-
-
 
 const WorldMap = ({ searchTerm }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -25,7 +22,9 @@ const WorldMap = ({ searchTerm }) => {
           return;
         }
       }
-      setSelectedCountry(null);
+      setSelectedCountry(null); // Reset to default state if no match found
+    } else {
+      setSelectedCountry(null); // Handle default state when searchTerm is empty
     }
   }, [searchTerm]);
 
@@ -65,6 +64,12 @@ const WorldMap = ({ searchTerm }) => {
               <li key={animal}>{animal}</li>
             )) || <li>No data available</li>}
           </ul>
+        </div>
+      )}
+      {!selectedCountry && (
+        <div>
+          <h2>World Map</h2>
+          <p>Select a country to see animal information.</p>
         </div>
       )}
     </div>

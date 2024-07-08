@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState} from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import WorldMap from './WorldMap.jsx';
 import CountryPage from './CountryPage.jsx';
@@ -21,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<WorldMap searchTerm={searchTerm} />} />
           <Route path="/country/:countryName" element={<CountryPage />} />
+          <Route path="*" element={<WorldMap searchTerm={searchTerm} />} />
+          <Route path="/world-map-search" element={<WorldMap searchTerm={searchTerm} />} />
         </Routes>
       </div>
     </Router>
