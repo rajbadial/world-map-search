@@ -1,0 +1,50 @@
+/* src/CountryPage.css */
+
+.country-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.animal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.animal-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  cursor: pointer;
+}
+
+.animal-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.animal-card img {
+  width: 100%;
+  height: auto;
+}
+
+.animal-card h3 {
+  margin: 15px;
+  font-size: 1.2em;
+}
+
+.animal-card p {
+  margin: 0 15px 15px;
+  color: #555;
+}

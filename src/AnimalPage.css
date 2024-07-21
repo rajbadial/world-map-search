@@ -1,0 +1,44 @@
+/* src/AnimalPage.css */
+
+.animal-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.animal-images {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.animal-images img {
+  max-width: 35%;
+  height: auto;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.animal-links {
+  margin-top: 20px;
+}
+
+.animal-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.animal-links li {
+  margin: 5px 0;
+}
+
+.animal-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.animal-links a:hover {
+  text-decoration: underline;
+}

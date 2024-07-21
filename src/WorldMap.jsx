@@ -17,7 +17,7 @@ const WorldMap = ({ searchTerm }) => {
           setSelectedCountry(country);
           return;
         }
-        if (animals.some(animal => animal.toLowerCase().includes(searchTerm.toLowerCase()))) {
+        if (animals.some(animal => animal.name.toLowerCase().includes(searchTerm.toLowerCase()))) {
           setSelectedCountry(country);
           return;
         }
@@ -35,9 +35,15 @@ const WorldMap = ({ searchTerm }) => {
   };
 
   return (
-    <div>
       <div className="map-container">
-        <ComposableMap>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{
+            scale: 100, // Adjust scale as needed
+          }}
+          width={1200}
+          height={400}
+        >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
@@ -45,8 +51,10 @@ const WorldMap = ({ searchTerm }) => {
                   key={geo.rsmKey}
                   geography={geo}
                   onClick={() => handleCountryClick(geo)}
+                  data-name={geo.properties.name}
+                  className="country"
                   style={{
-                    default: { fill: "#D6D6DA", outline: "none" },
+                    default: { fill: "#ADD8E6", outline: "none" },
                     hover: { fill: "#F53", outline: "none" },
                     pressed: { fill: "#E42", outline: "none" },
                   }}
@@ -55,23 +63,6 @@ const WorldMap = ({ searchTerm }) => {
             }
           </Geographies>
         </ComposableMap>
-      </div>
-      {selectedCountry && (
-        <div>
-          <h2>Animals in {selectedCountry}</h2>
-          <ul>
-            {animalData[selectedCountry]?.map((animal) => (
-              <li key={animal}>{animal}</li>
-            )) || <li>No data available</li>}
-          </ul>
-        </div>
-      )}
-      {!selectedCountry && (
-        <div>
-          <h2>World Map</h2>
-          <p>Select a country to see animal information.</p>
-        </div>
-      )}
     </div>
   );
 };

@@ -1,0 +1,23 @@
+/* src/FAQ.css */
+
+.faq-container {
+  padding: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin-left: 20px;
+}
+
+.language-selector {
+  margin-bottom: 20px;
+}
+  
